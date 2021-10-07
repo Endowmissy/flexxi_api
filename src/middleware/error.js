@@ -19,13 +19,13 @@ const errorHandler = (err, req, res, next) => {
     const message = Object.keys(err.errors).map((val) => errors[val] = err.errors[val].message);
     error = new ErrorResponse(message, 400);
     return res.status(error.statusCode).json({
-      status: 'fail',
+      status: 'Error',
       error: errors,
     });
   }
 
   res.status(error.statusCode || 500).json({
-    status: 'fail',
+    status: 'Error',
     error: error.message || 'Server Error',
   });
 };
