@@ -60,7 +60,6 @@ UserSchema.methods.generateAuthToken = async function () {
     sub: _id,
     issuedAt: Date.now(),
   };
-
   const token = jwt.sign(payload, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRE,
   });
