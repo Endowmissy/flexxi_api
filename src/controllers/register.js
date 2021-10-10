@@ -11,8 +11,8 @@ exports.register = asyncHandler(async (req, res ) => {
 
   // check if the email coming from the body exist
   const email_exist = await User.findOne({ email })
-  if(email_exist) {
-    return new ErrorResponse('This email has been used', 400)
+  if (email_exist) {
+    throw new ErrorResponse('This email has been used', 400)
   }
 
   // Create user

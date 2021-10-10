@@ -1,4 +1,5 @@
 const auth = require('./auth');
+const image = require('./image')
 
 module.exports = app => {
   app.get('/', (req, res) => {
@@ -6,4 +7,5 @@ module.exports = app => {
   });
 
   app.use('/api/v1/auth', auth); 
+  app.use('/api/v1/image', image);
 };
