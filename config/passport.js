@@ -8,8 +8,7 @@ const options = {
   secretOrKey: process.env.JWT_SECRET,
 };
 
-passport.use(
-  new JwtStrategy(options, (payload, done) => {
+  const strategy = new JwtStrategy(options, (payload, done) => {
     User.findOne({ id: payload.sub })
       .then((user) => {
         if (user) {
@@ -20,6 +19,7 @@ passport.use(
       })
       .catch((error) => done(error, null));
   })
-);
 
-module.exports = passport
+module.exports = (passport) => {
+  passport.use(strategy);
+}

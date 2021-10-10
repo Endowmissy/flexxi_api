@@ -105,3 +105,6 @@ dist
 
 # Env file
 config/config.env
+
+# File Storage
+uploads
