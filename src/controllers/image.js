@@ -39,3 +39,10 @@ exports.addImage = asyncHandler(async (req, res) => {
 
   SuccessResponse(res, 201, "Image added successfully", image);
 });
+
+exports.getImages = asyncHandler(async(req, res) => {
+    const allImages = await Image.find({}).sort({ createdAt: "descending"})
+
+    SuccessResponse(res, 201, "Image fetched successfully", allImages);
+
+})
